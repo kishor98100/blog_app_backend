@@ -1,14 +1,14 @@
+require('dotenv').config()
 const express = require('express');
 const mongoose = require('mongoose');
 const middleware = require('./middleware/auth_middleware');
 const postRouter = require('./routes/post');
 const userRouter = require('./routes/user');
 const app = express();
-require('dotenv').config()
 
 const PORT = process.env.PORT || 5000;
 
-mongoose.connect("mongodb://localhost:27017/blog_app_backend", { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
+mongoose.connect(process.env.MONGO_DB_URI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
     .then((connected) => console.log("MongoDb Connected"))
     .catch(err => console.log(err));
 
