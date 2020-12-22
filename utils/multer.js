@@ -5,11 +5,11 @@ const storage = multer.diskStorage({
         cb(null, "./uploads");
     },
     filename: (req, file, cb) => {
-        cb(null, Date.now() + "_" + file.buffer.filename);
+        cb(null, Date.now() + "_" + file.filename);
     }
 });
 const fileFilter = (req, file, cb) => {
-    if (file.mimetype == "i,age/jpeg" || file.mimetype == "image/png") {
+    if (file.mimetype == "image/jpeg" || file.mimetype == "image/png") {
         cb(null, true);
     } else {
         cb(null, false);
