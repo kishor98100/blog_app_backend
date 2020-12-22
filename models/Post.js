@@ -15,10 +15,13 @@ const Post = Schema({
         type: String,
         required: true
     },
+    image: {
+        type: String,
+    },
     publishedAt: {
         type: Number,
         default: Date.now()
-    }
+    },
 });
 
 module.exports = mongoose.model("Post", Post);

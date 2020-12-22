@@ -1,0 +1,107 @@
+//get user details
+GET  https://polar-retreat-24834.herokuapp.com/api/users/details
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZmUyMGNjNDA1MjkxOTAwM2FhNTcyMTIiLCJ1c2VybmFtZSI6Iktpc2hvciBNYWluYWxpIiwiaWF0IjoxNjA4NjQ5OTUwLCJleHAiOjE2MDg3MzYzNTB9.k5igUy87HD0BCHDrshIsXsxnGnQ5CYxxqmBlI-FhZ4Q
+
+
+###
+//register/create user
+POST  https://polar-retreat-24834.herokuapp.com/api/users/create 
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name":"Kishor Mainali",
+    "email":"mainali152kishor@gmail.com",
+    "password":"password"
+}
+
+###
+//get all users
+GET  https://polar-retreat-24834.herokuapp.com/api/users/
+Content-Type: application/json
+Accept: application/json
+
+
+###
+//delete user
+DELETE   https://polar-retreat-24834.herokuapp.com/api/users/delete/5fe1bfcc19c5193d0813af4b
+Content-Type: application/json
+Accept: application/json
+
+
+###
+//update user
+PUT  https://polar-retreat-24834.herokuapp.com/api/users/update/5fe1bfcc19c5193d0813af4b
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name":"Kishor Mainali",
+    "password":"password"
+}
+
+###
+//signin
+POST  https://polar-retreat-24834.herokuapp.com/api/users/signin
+Content-Type: application/json
+Accept: application/json
+
+{
+    "email":"mainali152kishor@gmail.com",
+    "password":"password"
+}
+
+
+###
+//create post
+POST  https://polar-retreat-24834.herokuapp.com/api/v1/posts/
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZmUyMGNjNDA1MjkxOTAwM2FhNTcyMTIiLCJ1c2VybmFtZSI6Iktpc2hvciBNYWluYWxpIiwiaWF0IjoxNjA4NjQ5OTUwLCJleHAiOjE2MDg3MzYzNTB9.k5igUy87HD0BCHDrshIsXsxnGnQ5CYxxqmBlI-FhZ4Q
+
+
+{
+    "title":"Test Title2",
+    "body":"Pariatur ea consequat ad nisi do nostrud amet ut duis deserunt aute fugiat. Quis amet Lorem tempor anim. Exercitation adipisicing sint ea proident. Occaecat excepteur adipisicing consequat cillum qui aliquip consequat veniam ex reprehenderit anim consectetur dolore."
+}
+
+
+###
+//get all posts
+GET  https://polar-retreat-24834.herokuapp.com/api/v1/posts/
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZmUyMGNjNDA1MjkxOTAwM2FhNTcyMTIiLCJ1c2VybmFtZSI6Iktpc2hvciBNYWluYWxpIiwiaWF0IjoxNjA4NjQ5OTUwLCJleHAiOjE2MDg3MzYzNTB9.k5igUy87HD0BCHDrshIsXsxnGnQ5CYxxqmBlI-FhZ4Q
+
+
+###
+
+//update post
+PATCH   https://polar-retreat-24834.herokuapp.com/api/v1/posts/update/5fe1d9676cba594527b1af99
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZmUyMGNjNDA1MjkxOTAwM2FhNTcyMTIiLCJ1c2VybmFtZSI6Iktpc2hvciBNYWluYWxpIiwiaWF0IjoxNjA4NjQ5OTUwLCJleHAiOjE2MDg3MzYzNTB9.k5igUy87HD0BCHDrshIsXsxnGnQ5CYxxqmBlI-FhZ4Q
+ 
+ {
+    "title":"Test Title updated",
+    "body":"Pariatur ea consequat ad nisi do nostrud amet ut duis deserunt aute fugiat. Quis amet Lorem tempor anim. Exercitation adipisicing sint ea proident. Occaecat excepteur adipisicing consequat cillum qui aliquip consequat veniam ex reprehenderit anim consectetur dolore."
+}
+
+
+###
+//delete post
+DELETE    https://polar-retreat-24834.herokuapp.com/api/v1/posts/delete/5fe1d9796cba594527b1af9a
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZmUyMGNjNDA1MjkxOTAwM2FhNTcyMTIiLCJ1c2VybmFtZSI6Iktpc2hvciBNYWluYWxpIiwiaWF0IjoxNjA4NjQ5OTUwLCJleHAiOjE2MDg3MzYzNTB9.k5igUy87HD0BCHDrshIsXsxnGnQ5CYxxqmBlI-FhZ4Q
+ 
+ 
+
+###
+//get single post
+GET    https://polar-retreat-24834.herokuapp.com/api/v1/posts/5fe20cf2052919003aa57213
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZmUyMGNjNDA1MjkxOTAwM2FhNTcyMTIiLCJ1c2VybmFtZSI6Iktpc2hvciBNYWluYWxpIiwiaWF0IjoxNjA4NjQ5OTUwLCJleHAiOjE2MDg3MzYzNTB9.k5igUy87HD0BCHDrshIsXsxnGnQ5CYxxqmBlI-FhZ4Q

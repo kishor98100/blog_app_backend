@@ -1,8 +1,10 @@
 const postRouter = require('express').Router();
-const mongoose = require('mongoose');
+
 
 const Post = require('../models/Post');
 const User = require('../models/User');
+const upload = require('../utils/multer')
+
 
 //get post details by id
 postRouter.get('/:id', async (req, res) => {
@@ -26,7 +28,7 @@ postRouter.get('/', async (req, res) => {
 
 
 //create new post
-postRouter.post('/', async (req, res) => {
+postRouter.post('/', upload.single("image"), async (req, res) => {
 
     const userId = req.decoded.userId;
     const username = req.decoded.username;
@@ -35,6 +37,7 @@ postRouter.post('/', async (req, res) => {
         title: req.body.title,
         body: req.body.body,
         username: username,
+        image: req.file.path,
     }
     return Post.create(post).then(document => {
         return User.findByIdAndUpdate(userId, { $push: { posts: document._id } }, { new: true, useFindAndModify: false })
