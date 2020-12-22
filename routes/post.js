@@ -32,7 +32,6 @@ postRouter.post('/', upload.single('image'), async (req, res) => {
 
     const userId = req.decoded.userId;
     const username = req.decoded.username;
-    console.log(req.file);
 
     const post =
     {

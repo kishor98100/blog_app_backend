@@ -57,16 +57,23 @@ Accept: application/json
 ###
 //create post
 POST  https://polar-retreat-24834.herokuapp.com/api/v1/posts/
-Content-Type: application/json
-Accept: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZmUyMGNjNDA1MjkxOTAwM2FhNTcyMTIiLCJ1c2VybmFtZSI6Iktpc2hvciBNYWluYWxpIiwiaWF0IjoxNjA4NjQ5OTUwLCJleHAiOjE2MDg3MzYzNTB9.k5igUy87HD0BCHDrshIsXsxnGnQ5CYxxqmBlI-FhZ4Q
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
 
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="title"
 
-{
-    "title":"Test Title2",
-    "body":"Pariatur ea consequat ad nisi do nostrud amet ut duis deserunt aute fugiat. Quis amet Lorem tempor anim. Exercitation adipisicing sint ea proident. Occaecat excepteur adipisicing consequat cillum qui aliquip consequat veniam ex reprehenderit anim consectetur dolore."
-}
+test title
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="body"
 
+Enim et duis sunt commodo Lorem sunt non proident enim do ex. Et commodo velit sit dolor velit qui est aute do sit. Pariatur exercitation nulla tempor ipsum id veniam ullamco non cupidatat reprehenderit in deserunt Lorem officia. Excepteur consequat et voluptate sint do reprehenderit sunt dolor labore. Quis sunt est irure voluptate ad reprehenderit nulla. Ullamco et ea consequat excepteur ad voluptate fugiat laborum minim commodo veniam quis. Velit nostrud incididunt sint ipsum nisi quis.
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="image"; filename="value.png"
+Content-Type: image/png
+
+< /Users/kishor/Downloads/value.png
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
 
 ###
 //get all posts
