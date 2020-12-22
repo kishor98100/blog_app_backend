@@ -4,7 +4,7 @@
   "description": "BackEnd for blog app ",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "npm uninstall bcrypt && npm install bcrypt && node index.js"
   },
   "author": "Kishor Mainali",
   "license": "ISC",
