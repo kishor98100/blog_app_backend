@@ -1,6 +1,6 @@
 const userRouter = require('express').Router();
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
+const createJwtToken = require('../utils/jwt');
 const moment = require('moment');
 const middleware = require('../middleware/auth_middleware');
 
@@ -49,7 +49,9 @@ userRouter.post('/create', async (req, res) => {
             );
             const result = await user.save();
             if (result) {
-                res.status(201).json({ "message": "User Created Successfully", "user": result });
+                const token = createJwtToken(user._id, user.username);
+                res.status(200).json({ "message": "User Created Successfully", "token": token.token, "refreshToken": token.refreshToken, "expiry": moment().add(1, 'days').unix() });
+
             } else {
                 res.status(400).json({ "message": "Unable to create user", "user": result });
             }
@@ -67,12 +69,8 @@ userRouter.post('/signin', async (req, res) => {
         const user = await User.findOne({ email: req.body.email });
         if (user) {
             if (await bcrypt.compare(req.body.password, user.password)) {
-
-                const token = jwt.sign({ userId: user._id, username: user.name }, process.env.JWT_HASH, {
-                    expiresIn: "24h",
-                });
-                const refreshToken = jwt.sign({ userId: user._id, username: user.name }, process.env.JWT_HASH);
-                res.status(200).json({ "message": "Logged In Successfully", "token": token, "refreshToken": refreshToken, "expiry": moment().add(1, 'days').unix() });
+                const token = createJwtToken(user._id, user.username);
+                res.status(200).json({ "message": "Logged In Successfully", "token": token.token, "refreshToken": token.refreshToken, "expiry": moment().add(1, 'days').unix() });
             } else {
                 res.status(401).json({ "message": "Invalid email or password" });
             }
