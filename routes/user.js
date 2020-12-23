@@ -72,7 +72,7 @@ userRouter.post('/signin', async (req, res) => {
                     expiresIn: "24h",
                 });
                 const refreshToken = jwt.sign({ userId: user._id, username: user.name }, process.env.JWT_HASH);
-                res.status(200).json({ "message": "Logged In Successfully", "user": user, "token": token, "refreshToken": refreshToken, "expiry": moment().add(1, 'days').unix() });
+                res.status(200).json({ "message": "Logged In Successfully", "token": token, "refreshToken": refreshToken, "expiry": moment().add(1, 'days').unix() });
             } else {
                 res.status(401).json({ "message": "Invalid email or password" });
             }
